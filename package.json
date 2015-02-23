@@ -1,0 +1,16 @@
+{
+  "name": "rd-resume",
+  "version": "0.0.1",
+  "description": "An online version of my CV, continuously deployed to Azure.",
+  "main": "app.js",
+  "author": {
+    "name": "richardkdrew",
+    "email": ""
+  },
+  "scripts" : {
+	"test": "node ./node_modules/resume-cli/index.js export index -f html"
+  },
+  "dependencies": {
+    "resume-cli": "^0.3.10"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "basics": {
+    "name": "Richard Drew",
+    "label": "Archictect, Developer, Technologist",
+    "picture": "",
+    "email": "richardkdrew@gmail.com",
+    "website": "http://stevenedouard.com",
+    "summary": "blah, blah...",
+    "location": {
+      "city": "Auckland",
+      "countryCode": "NZ",
+      "region": "North Island"
+    },
+    "profiles": [
+      {
+        "network": "Resume Source",
+        "url": "http://github.com/richardkdrew/resume",
+        "username": "This Resume is built from this Github Repo"
+      },
+      {
+        "network": "Github",
+        "username": "richardkdrew",
+        "url": "https://github.com/richardkdrew"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Spendvision",
+      "position": "Lead Solutions Architect",
+      "website": "http://spendvision.com",
+      "startDate": "2014-04-01",
+      "summary": "None",
+      "highlights": [
+        "None",
+        "None",
+        "None",
+		"None"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "None",
+      "position": "None",
+      "website": "None",
+      "startDate": "2000-01-01",
+      "endDate": "2001-01-01",
+      "summary": "None",
+      "highlights": [
+        "None"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Glamorgan",
+      "area": "Software Engineering",
+      "studyType": "HND",
+      "startDate": "1998-09-01",
+      "endDate": "2000-07-01"
+    }
+  ],
+  "awards": [
+    {
+      "name": "None",
+      "date": "2001-01-01",
+      "awarder": "None",
+      "summary": "None"
+    }
+  ],
+  "skills": [
+    {
+      "name": "C# and .NET",
+      "level": "Intermediate",
+      "keywords": [
+        "C#"
+      ]
+    },
+    {
+      "name": "Node.js",
+      "level": "Intermediate",
+      "keywords": [
+        "javascript",
+        "express"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    }
+  ]
+}
