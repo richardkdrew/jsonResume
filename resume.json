@@ -1,11 +1,11 @@
 {
   "basics": {
     "name": "Richard Drew",
-    "label": "Archictect, Developer, Technologist",
+    "label": "Architect, Developer, Technologist",
     "picture": "",
     "email": "richardkdrew@gmail.com",
-    "website": "http://stevenedouard.com",
-    "summary": "blah, blah...",
+    "website": "",
+    "summary": "Enthusiastic, flexible, innovative and confident of my skills and abilities I pride myself on my energy and drive.  Maximising and channelling these qualities, I take full advantage of both the active search for a solution in concert with the fulfilment and learning opportunity that comes from a satisfactory outcome. A problem solver, confident manager and patient mentor, I am at ease performing a lead role in any given situation and/or task. Aspiring to achieve an ever increasing level of expertise in my chosen field I work hard to stay at the forefront of emerging technologies, methodologies and practices that drive the industry.",
     "location": {
       "city": "Auckland",
       "countryCode": "NZ",
@@ -55,17 +55,38 @@
   "education": [
     {
       "institution": "University of Glamorgan",
+      "area": "Computer Science",
+      "studyType": "Graduate Degree, BSc (Bachelor of Science)",
+      "startDate": "2000-09-01",
+      "endDate": "2004-06-01"
+    },
+	{
+      "institution": "University of Glamorgan",
       "area": "Software Engineering",
       "studyType": "HND",
       "startDate": "1998-09-01",
-      "endDate": "2000-07-01"
+      "endDate": "2000-06-01"
+    },
+	{
+      "institution": "Afon College, Port Talbot",
+      "area": "RPGIII/400 Programming ",
+      "studyType": "Extra Curricular Qualification",
+      "startDate": "1990-09-01",
+      "endDate": "1991-06-01"
+    },
+	{
+      "institution": "Coleg Morgannwg",
+      "area": "Information Technology",
+      "studyType": "726 C&G (City and Guilds) Certificate",
+      "startDate": "1988-09-01",
+      "endDate": "1990-06-01"
     }
   ],
   "awards": [
     {
-      "name": "None",
-      "date": "2001-01-01",
-      "awarder": "None",
+      "name": "Certified SCRUM Master",
+      "date": "2011-03-12",
+      "awarder": "Equinox IT",
       "summary": "None"
     }
   ],
