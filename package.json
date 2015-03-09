@@ -8,7 +8,7 @@
     "email": "richardkdrew@gmail.com"
   },
   "scripts" : {
-	"deploy-resume": "node ./node_modules/resume-cli/index.js export index -f html -t Elegant"
+	"deploy-resume": "node ./node_modules/resume-cli/index.js export index -f html -t elegant"
   },
   "dependencies": {
     "resume-cli": "^0.3.10"

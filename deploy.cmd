@@ -1,9 +1,30 @@
+Skip to content
+ This repository
+Explore
+Gist
+Blog
+Help
+Richard Drew richardkdrew
+ 
+3  Watch 
+  Star 24
+ Fork 15sedouard/resume
+ branch: master resume/deploy.cmd
+Steven Edouardsedouard on Jan 8 Update deploy.cmd
+1 contributor
+RawBlameHistory     106 lines (80 sloc)  2.802 kb
 @if "%SCM_TRACE_LEVEL%" NEQ "4" @echo off
 
 :: ----------------------
 :: KUDU Deployment Script
 :: Version: 0.1.11
 :: ----------------------
+
+ECHO Azure Websites has changed behaviors and automagically generates a web.config based on what it THINKS your website is.
+ECHO This demo is a static website built by a node.js tool so it'll try to deploy as a Node website. The
+ECHO quickest hack around this is to simply delete the web.config file generated so that this website is
+ECHO processed as a simple website, not as a node.js one
+del web.config
 
 :: Prerequisites
 :: -------------
@@ -47,39 +68,6 @@ IF NOT DEFINED KUDU_SYNC_CMD (
   :: Locally just running "kuduSync" would also work
   SET KUDU_SYNC_CMD=%appdata%\npm\kuduSync.cmd
 )
-goto Deployment
-
-:: Utility Functions
-:: -----------------
-
-:SelectNodeVersion
-
-IF DEFINED KUDU_SELECT_NODE_VERSION_CMD (
-  :: The following are done only on Windows Azure Websites environment
-  call %KUDU_SELECT_NODE_VERSION_CMD% "%DEPLOYMENT_SOURCE%" "%DEPLOYMENT_TARGET%" "%DEPLOYMENT_TEMP%"
-  IF !ERRORLEVEL! NEQ 0 goto error
-
-  IF EXIST "%DEPLOYMENT_TEMP%\__nodeVersion.tmp" (
-    SET /p NODE_EXE=<"%DEPLOYMENT_TEMP%\__nodeVersion.tmp"
-    IF !ERRORLEVEL! NEQ 0 goto error
-  )
-
-  IF EXIST "%DEPLOYMENT_TEMP%\__npmVersion.tmp" (
-    SET /p NPM_JS_PATH=<"%DEPLOYMENT_TEMP%\__npmVersion.tmp"
-    IF !ERRORLEVEL! NEQ 0 goto error
-  )
-
-  IF NOT DEFINED NODE_EXE (
-    SET NODE_EXE=node
-  )
-
-  SET NPM_CMD="!NODE_EXE!" "!NPM_JS_PATH!"
-) ELSE (
-  SET NPM_CMD=npm
-  SET NODE_EXE=node
-)
-
-goto :EOF
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Deployment
@@ -90,9 +78,7 @@ echo Handling Basic Web Site deployment.
 echo Building Resume
 call :Executecmd npm install
 IF !ERRORLEVEL! NEQ 0 goto error
-echo Start resume generation %TIME%
-  call :Executecmd node .\node_modules\resume-cli\index.js export index -f html --theme elegant
-  echo Finish resume generation %TIME%
+call :Executecmd npm test
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 1. KuduSync
@@ -119,7 +105,7 @@ exit /b %ERRORLEVEL%
 
 :error
 endlocal
-echo An error has occurred during web site deployment %TIME%
+echo An error has occurred during web site deployment.
 call :exitSetErrorLevel
 call :exitFromFunction 2>nul
 
@@ -131,4 +117,6 @@ exit /b 1
 
 :end
 endlocal
-echo Finished successfully %TIME%
+echo Finished successfully.
+Status API Training Shop Blog About
+© 2015 GitHub, Inc. Terms Privacy Security Contact
