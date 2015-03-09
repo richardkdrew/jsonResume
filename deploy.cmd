@@ -85,7 +85,9 @@ goto :EOF
 :: Deployment
 :: ----------
 
+:Deployment
 echo Handling Basic Web Site deployment.
+echo %DEPLOYMENT_SOURCE%
 
 echo Building Resume
 call :Executecmd npm install
