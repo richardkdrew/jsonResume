@@ -5,12 +5,6 @@
 :: Version: 0.1.11
 :: ----------------------
 
-ECHO Azure Websites has changed behaviors and automagically generates a web.config based on what it THINKS your website is.
-ECHO This demo is a static website built by a node.js tool so it'll try to deploy as a Node website. The
-ECHO quickest hack around this is to simply delete the web.config file generated so that this website is
-ECHO processed as a simple website, not as a node.js one
-del web.config
-
 :: Prerequisites
 :: -------------
 
@@ -53,20 +47,74 @@ IF NOT DEFINED KUDU_SYNC_CMD (
   :: Locally just running "kuduSync" would also work
   SET KUDU_SYNC_CMD=%appdata%\npm\kuduSync.cmd
 )
+goto Deployment
+
+:: Utility Functions
+:: -----------------
+
+:SelectNodeVersion
+
+IF DEFINED KUDU_SELECT_NODE_VERSION_CMD (
+  :: The following are done only on Windows Azure Websites environment
+  call %KUDU_SELECT_NODE_VERSION_CMD% "%DEPLOYMENT_SOURCE%" "%DEPLOYMENT_TARGET%" "%DEPLOYMENT_TEMP%"
+  IF !ERRORLEVEL! NEQ 0 goto error
+
+  IF EXIST "%DEPLOYMENT_TEMP%\__nodeVersion.tmp" (
+    SET /p NODE_EXE=<"%DEPLOYMENT_TEMP%\__nodeVersion.tmp"
+    IF !ERRORLEVEL! NEQ 0 goto error
+  )
+
+  IF EXIST "%DEPLOYMENT_TEMP%\__npmVersion.tmp" (
+    SET /p NPM_JS_PATH=<"%DEPLOYMENT_TEMP%\__npmVersion.tmp"
+    IF !ERRORLEVEL! NEQ 0 goto error
+  )
+
+  IF NOT DEFINED NODE_EXE (
+    SET NODE_EXE=node
+  )
+
+  SET NPM_CMD="!NODE_EXE!" "!NPM_JS_PATH!"
+) ELSE (
+  SET NPM_CMD=npm
+  SET NODE_EXE=node
+)
+
+goto :EOF
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Deployment
 :: ----------
 
-echo Handling Basic Web Site deployment.
+:Deployment
+echo Handling node.js deployment.
+echo %DEPLOYMENT_SOURCE%
 
-echo Building Resume
-call :Executecmd npm install
-IF !ERRORLEVEL! NEQ 0 goto error
-call :Executecmd npm test
-IF !ERRORLEVEL! NEQ 0 goto error
+:: 1. Select node version
+call :SelectNodeVersion
 
-:: 1. KuduSync
+:: 2. Install npm packages
+echo Installing npm dependencies.
+IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
+  pushd "%DEPLOYMENT_SOURCE%"
+  echo Start npm dependency install %TIME%
+  call !NPM_CMD! install
+  echo Finish npm dependency install %TIME%
+  IF !ERRORLEVEL! NEQ 0 goto error
+  popd
+)
+
+:: 3. Generate Resume
+echo Generating Resume.
+IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
+  pushd "%DEPLOYMENT_SOURCE%"
+  echo Start resume generation %TIME%
+  call :Executecmd node .\node_modules\resume-cli\index.js export index -f html --theme Elegant
+  echo Finish resume generation %TIME%
+  IF !ERRORLEVEL! NEQ 0 goto error
+  popd
+)
+
+:: 4. KuduSync
 IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
   call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
   IF !ERRORLEVEL! NEQ 0 goto error
@@ -90,7 +138,7 @@ exit /b %ERRORLEVEL%
 
 :error
 endlocal
-echo An error has occurred during web site deployment.
+echo An error has occurred during web site deployment %TIME%
 call :exitSetErrorLevel
 call :exitFromFunction 2>nul
 
@@ -102,4 +150,4 @@ exit /b 1
 
 :end
 endlocal
-echo Finished successfully.
+echo Finished successfully %TIME%
