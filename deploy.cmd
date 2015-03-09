@@ -85,36 +85,17 @@ goto :EOF
 :: Deployment
 :: ----------
 
-:Deployment
-echo Handling node.js deployment.
-echo %DEPLOYMENT_SOURCE%
+echo Handling Basic Web Site deployment.
 
-:: 1. Select node version
-call :SelectNodeVersion
-
-:: 2. Install npm packages
-echo Installing npm dependencies.
-IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
-  pushd "%DEPLOYMENT_SOURCE%"
-  echo Start npm dependency install %TIME%
-  call !NPM_CMD! install
-  echo Finish npm dependency install %TIME%
-  IF !ERRORLEVEL! NEQ 0 goto error
-  popd
-)
-
-:: 3. Generate Resume
-echo Generating Resume.
-IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
-  pushd "%DEPLOYMENT_SOURCE%"
-  echo Start resume generation %TIME%
-  call :Executecmd node .\node_modules\resume-cli\index.js export index -f html --theme Elegant
+echo Building Resume
+call :Executecmd npm install
+IF !ERRORLEVEL! NEQ 0 goto error
+echo Start resume generation %TIME%
+  call :Executecmd node .\node_modules\resume-cli\index.js export index -f html --theme elegant
   echo Finish resume generation %TIME%
-  IF !ERRORLEVEL! NEQ 0 goto error
-  popd
-)
+IF !ERRORLEVEL! NEQ 0 goto error
 
-:: 4. KuduSync
+:: 1. KuduSync
 IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
   call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
   IF !ERRORLEVEL! NEQ 0 goto error
