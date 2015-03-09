@@ -63,7 +63,7 @@
 	{
       "institution": "University of Glamorgan",
       "area": "Software Engineering",
-      "studyType": "HND",
+      "studyType": "HND (Higher National Diploma)",
       "startDate": "1998-09-01",
       "endDate": "2000-06-01"
     },
@@ -82,7 +82,7 @@
       "endDate": "1990-06-01"
     }
   ],
-  "awards": [
+  "courses": [
     {
       "name": "Certified SCRUM Master",
       "date": "2011-03-12",
@@ -110,6 +110,10 @@
   "languages": [
     {
       "language": "English",
+      "fluency": "Native speaker"
+    },
+	{
+      "language": "Welsh",
       "fluency": "Native speaker"
     }
   ]

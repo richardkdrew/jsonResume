@@ -5,7 +5,7 @@
   "main": "app.js",
   "author": {
     "name": "richardkdrew",
-    "email": ""
+    "email": "richardkdrew@gmail.com"
   },
   "scripts" : {
 	"test": "node ./node_modules/resume-cli/index.js export index -f html"
