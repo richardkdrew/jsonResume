@@ -189,7 +189,7 @@
   ],
   "awards": [
     {
-      "name": "SCRUM Master",
+      "title": "Certified SCRUM Master",
       "date": "2011-03-12",
       "awarder": "Equinox IT",
       "summary": "None"
@@ -222,4 +222,15 @@
       "fluency": "Native speaker"
     }
   ]
+    "interests": [
+    {
+    "name": "Sport",
+    "keywords": [
+      "Rugby",
+      "Paddle Boarding"
+    ]
+  },
+  {
+    "name": "Photography"
+  }],
 }
