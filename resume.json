@@ -32,8 +32,6 @@
       "startDate": "2015-04-01",
       "summary": "None",
       "highlights": [
-        "None",
-        "None",
         "None"
       ]
     },
@@ -45,8 +43,6 @@
       "endDate": "2015-03-31",
       "summary": "None",
       "highlights": [
-        "None",
-        "None",
         "None"
       ]
     },
@@ -58,8 +54,6 @@
       "endDate": "2014-03-31",
       "summary": "None",
       "highlights": [
-        "None",
-        "None",
         "None"
       ]
     },
@@ -67,12 +61,10 @@
       "company": "Market Pulse International",
       "position": "Head of IT & Development",
       "website": "http://marketpulseinternational.com",
-      "startDate": "2011-04-01",
+      "startDate": "2010-08-01",
 "endDate": "2012-04-30",
       "summary": "None",
       "highlights": [
-        "None",
-        "None",
         "None"
       ]
     },
@@ -81,11 +73,86 @@
       "position": "Software Architect",
       "website": "http://marketpulseinternational.com",
       "startDate": "2010-04-01",
-"endDate": "2011-03-31",
+"endDate": "2010-07-31",
       "summary": "None",
       "highlights": [
-        "None",
-        "None",
+        "None"
+      ]
+    },
+        {
+      "company": "Moorhouse Insurance Group",
+      "position": "Technical Operational Group Support Manager",
+      "website": "http://moorhouseinsurance.co.uk",
+      "startDate": "2009-01-01",
+"endDate": "2009-08-31",
+      "summary": "None",
+      "highlights": [
+        "None"
+      ]
+    },
+     {
+      "company": "Moorhouse Insurance Group",
+      "position": "Software Development Manager",
+      "website": "http://moorhouseinsurance.co.uk",
+      "startDate": "2008-07-01",
+"endDate": "2008-12-31",
+      "summary": "None",
+      "highlights": [
+        "None"
+      ]
+    },
+     {
+      "company": "Moorhouse Insurance Group",
+      "position": "Software Architect",
+      "website": "http://moorhouseinsurance.co.uk",
+      "startDate": "2007-04-01",
+"endDate": "2008-06-30",
+      "summary": "None",
+      "highlights": [
+        "None"
+      ]
+    },
+    {
+      "company": "University of Glamorgan (now the university of South Wales)",
+      "position": "Senior Applications Developer",
+      "website": "http://southwales.ac.uk",
+      "startDate": "2004-06-01",
+"endDate": "2007-03-31",
+      "summary": "None",
+      "highlights": [
+        "None"
+      ]
+    },
+    {
+      "company": "University of Glamorgan (now the university of South Wales)",
+      "position": "Senior Systems Developer VLE (Virtual Learning Environment)",
+      "website": "http://southwales.ac.uk",
+      "startDate": "2002-08-01",
+"endDate": "2004-05-31",
+      "summary": "None",
+      "highlights": [
+        "None"
+      ]
+    },
+    {
+      "company": "University of Glamorgan (now the university of South Wales)",
+      "position": "Systems Developer, e-Learning Technician VLE (Virtual Learning Environment)",
+      "website": "http://southwales.ac.uk",
+      "startDate": "2001-09-01",
+"endDate": "2002-07-31",
+      "summary": "None",
+      "highlights": [
+        "None"
+      ]
+    },
+    {
+      "company": "University of Glamorgan (now the university of South Wales)",
+      "position": "Computer Aided Assessment Developer",
+      "website": "http://southwales.ac.uk",
+      "startDate": "2000-11-01",
+"endDate": "2001-08-31",
+      "summary": "None",
+      "highlights": [
         "None"
       ]
     }
