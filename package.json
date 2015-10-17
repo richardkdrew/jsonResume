@@ -1,16 +1,21 @@
 {
-  "name": "rd-resume",
+  "name": "JSON Resume (Richard K Drew)",
   "version": "0.0.1",
-  "description": "An online version of my CV, continuously deployed to Azure.",
+  "description": "An online version of my CV.",
   "main": "app.js",
   "author": {
     "name": "richardkdrew",
     "email": "richardkdrew@gmail.com"
   },
+  "repository" :
+  { "type" : "git",
+    "url" : "https://github.com/richardkdrew/resume.git"
+  },
   "scripts" : {
-	"deploy-resume": "node ./node_modules/resume-cli/index.js export index -f html -t elegant"
+	"deploy-resume": "node ./node_modules/resume-cli/index.js export index -f html -t elegant",
+    "test": "node ./node_modules/resume-cli/index.js test"
   },
   "dependencies": {
-    "resume-cli": "^0.3.10"
+    "resume-cli": "^0.4.8"
   }
 }
