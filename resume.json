@@ -27,7 +27,7 @@
   "work": [
     {
       "company": "Fraedom (formerly Spendvision)",
-      "position": "Architect Practice Specialist",
+      "position": "Lead Solutions Architect",
       "website": "http://fraedom.com",
       "startDate": "2015-04-01",
       "summary": "None",
@@ -231,6 +231,9 @@
     ]
   },
   {
-    "name": "Photography"
-  }],
+    "name": "Photography",
+    "keywords": [
+      "Portraits"
+    ]
+  }]
 }
