@@ -5,7 +5,7 @@
 # https://github.com/richardkdrew/docker-nodejs
 #
 
-FROM richardkdrew/nodejs:0.12.7
+FROM richardkdrew/nodejs
 
 MAINTAINER Richard Drew <richardkdrew@gmail.com>
 
