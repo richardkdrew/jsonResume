@@ -2,7 +2,7 @@
 #
 # Node.js Dockerfile
 #
-# https://github.com/richardkdrew/docker-nodejs
+# https://github.com/richardkdrew/resume
 #
 
 FROM richardkdrew/nodejs
