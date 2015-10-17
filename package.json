@@ -1,5 +1,5 @@
 {
-  "name": "JSON Resume (Richard K Drew)",
+  "name": "rd-resume",
   "version": "0.0.1",
   "description": "An online version of my CV.",
   "main": "app.js",
