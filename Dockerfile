@@ -15,9 +15,7 @@ WORKDIR "/resume"
 
 RUN npm install
 
-ONBUILD ["./node_modules/resume-cli/index.js", "export", "index", "-f", "html", "-t",  "elegant"]
-
 EXPOSE 4000
 
-ENTRYPOINT ["node"]
-CMD ["./node_modules/resume-cli/index.js", "serve"]
+ENTRYPOINT ["node", "./node_modules/resume-cli/index.js"]
+CMD ["serve", "--theme",  "elegant"]
