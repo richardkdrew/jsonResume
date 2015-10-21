@@ -6,6 +6,7 @@ dependencies:
 
 deployment:
   aws:
-    branch: master
-      commands:
-        - /bin/bash publish.sh
+    branch:
+      master
+        commands:
+          - /bin/bash publish.sh
