@@ -1,10 +1,11 @@
 dependencies:
-    override:
-        - bundle install
-        - sudo pip install awscli
+  override:
+    - npm export
+    - bundle install
+    - sudo pip install awscli
 
 deployment:
   aws:
     branch: master
-        commands:
+      commands:
         - /bin/bash publish.sh
