@@ -2,7 +2,7 @@
   "name": "rd-resume",
   "version": "0.0.1",
   "description": "An online version of my CV.",
-  "main": "app.js",
+  "main": "./node_modules/resume-cli/index.js",
   "author": {
     "name": "richardkdrew",
     "email": "richardkdrew@gmail.com"
