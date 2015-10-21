@@ -13,7 +13,7 @@
   },
   "license": "UNLICENSED",
   "scripts" : {
-	"export": "node ./node_modules/resume-cli/index.js export index -f html -t elegant",
+	"export": "node ./node_modules/resume-cli/index.js export index.html -t elegant",
     "test": "node ./node_modules/resume-cli/index.js test"
   },
   "dependencies": {
