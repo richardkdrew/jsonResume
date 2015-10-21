@@ -1,6 +1,6 @@
 dependencies:
   override:
-    - npm export
+    - npm run export
     - bundle install
     - sudo pip install awscli
 
